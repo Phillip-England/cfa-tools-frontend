@@ -1,6 +1,4 @@
 import { useContext, useEffect, useState } from "react"
-import { PageContext } from "../context/PageContext"
-import { UserContext } from "../context/UserContext"
 import { getLocations } from "../requests/getLocations"
 import { Location } from "../types/Location"
 import { Navigate } from "react-router-dom"
@@ -8,12 +6,11 @@ import { selectLocation } from "../requests/selectLocation"
 import { dropActiveLocation } from "../requests/dropActiveLocation"
 import { NewLocationForm } from "../components/forms/NewLocationForm"
 import { deleteLocation } from "../requests/deleteLocation"
+import { MasterContext } from "../components/MasterContext"
 
 export const UserHome: React.FC = () => {
-  const userContext = useContext(UserContext)
-  const { user } = userContext
-  const pageContext = useContext(PageContext)
-  const { setPage } = pageContext
+  const masterContext = useContext(MasterContext)
+  const { user, setPage } = masterContext
   const [locations, setLocations] = useState<Location[] | null>(null)
   const [loadingLocations, setLoadingLocations] = useState<boolean>(true)
   const [redirect, setRedirect] = useState<boolean>(false)

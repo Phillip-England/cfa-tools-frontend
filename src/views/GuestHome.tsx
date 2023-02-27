@@ -2,11 +2,11 @@ import { LoginForm } from "../components/forms/LoginForm"
 import { SignupForm } from "../components/forms/SignupForm"
 import { getUser } from "../requests/getUser"
 import { useEffect, useContext } from "react"
-import { PageContext } from "../context/PageContext"
+import { MasterContext } from "../components/MasterContext"
 
 export const GuestHome: React.FC = () => {
-  const pageContext = useContext(PageContext)
-  const { setPage } = pageContext
+  const masterContext = useContext(MasterContext)
+  const { setPage } = masterContext
 
   useEffect(() => {
     setPage("/")

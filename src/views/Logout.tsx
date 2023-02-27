@@ -1,4 +1,4 @@
-import { PageContext } from "../context/PageContext"
+import { PageContext } from "../components/context/PageContext"
 import { useContext, useEffect, useState } from "react"
 import { logoutUser } from "../requests/logoutUser"
 import { Navigate } from "react-router-dom"

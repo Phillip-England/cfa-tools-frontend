@@ -1,23 +1,18 @@
-import { User } from "../../types/User"
+import { User } from "../types/User"
 import { useContext, useEffect, useState } from "react"
-import { getUser } from "../../requests/getUser"
 import { Navigate, Outlet } from "react-router-dom"
-import { UserContext } from "../../context/UserContext"
-import { PageContext } from "../../context/PageContext"
-import { getActiveLocation } from "../../requests/getActiveLocation"
-import { ActiveLocationContext } from "../../context/ActiveLocationContext"
-import { Location } from "../../types/Location"
+import { getActiveLocation } from "../requests/getActiveLocation"
+import { Location } from "../types/Location"
+import { MasterContext } from "./MasterContext"
 
 export const ActiveLocationRoutes: React.FC = () => {
+  const masterContext = useContext(MasterContext)
+  const { page, setActiveLocation, appLoading, setAppLoading } = masterContext
   const [redirect, setRedirect] = useState<boolean>(false)
-  const pageContext = useContext(PageContext)
-  const { page } = pageContext
-  const activeLocationContext = useContext(ActiveLocationContext)
-  const { setActiveLocation } = activeLocationContext
-  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     getActiveLocation().then(async (res) => {
+      console.log("hit")
       if (res.status !== 200) {
         setRedirect(true)
       }
@@ -29,13 +24,12 @@ export const ActiveLocationRoutes: React.FC = () => {
         number: json.data.number,
       }
       setActiveLocation(location)
-      setLoading(false)
     })
   }, [page])
 
   return (
     <>
-      {loading ? (
+      {appLoading ? (
         <p>Loading...</p>
       ) : redirect ? (
         <Navigate to="/app" />

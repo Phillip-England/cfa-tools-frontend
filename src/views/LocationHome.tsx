@@ -1,21 +1,17 @@
-import { ActiveLocationContext } from "../context/ActiveLocationContext"
 import { useContext, useEffect } from "react"
-import { PageContext } from "../context/PageContext"
+import { MasterContext } from "../components/MasterContext"
 export const LocationHome: React.FC = () => {
-  const activeLocationContext = useContext(ActiveLocationContext)
-  const { activeLocation, setActiveLocation } = activeLocationContext
-  const pageContext = useContext(PageContext)
-  const { setPage } = pageContext
+  const masterContext = useContext(MasterContext)
+  const { setPage, activeLocation } = masterContext
 
   useEffect(() => {
     setPage("/location")
-  })
+  }, [])
 
   return (
     <>
-      <h1>Location Home</h1>
-      <p>Name: {activeLocation?.name}</p>
-      <p>Number: {activeLocation?.number}</p>
+      <h1>{activeLocation?.name}</h1>
+      <h1>#{activeLocation?.number}</h1>
     </>
   )
 }

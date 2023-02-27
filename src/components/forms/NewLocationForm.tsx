@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react"
-import { UserContext } from "../../context/UserContext"
 import { Location } from "../../types/Location"
+import { MasterContext } from "../MasterContext"
 
 interface Props {
   operations: number
@@ -11,8 +11,8 @@ export const NewLocationForm: React.FC<Props> = ({
   operations,
   setOperations,
 }) => {
-  const userContext = useContext(UserContext)
-  const { user } = userContext
+  const masterContext = useContext(MasterContext)
+  const { user, setAppLoading } = masterContext
   const [name, setName] = useState("")
   const [number, setNumber] = useState("")
 
@@ -25,13 +25,13 @@ export const NewLocationForm: React.FC<Props> = ({
   return (
     <form
       onSubmit={async (e) => {
+        setAppLoading(true)
         e.preventDefault()
         const body: RequestBody = {
           name: name,
           number: number,
           _csrf: user?._csrf,
         }
-        console.log(body)
         const response = await fetch("http://localhost:8080/location/create", {
           method: "POST",
           credentials: "include",
@@ -46,6 +46,7 @@ export const NewLocationForm: React.FC<Props> = ({
         }
         let newCount = operations + 1
         setOperations(newCount)
+        setAppLoading(false)
       }}
     >
       <h1>Create a Location</h1>
