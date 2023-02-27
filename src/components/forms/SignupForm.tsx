@@ -21,8 +21,8 @@ export const SignupForm: React.FC = () => {
           method: "POST",
           body: await JSON.stringify(body),
         })
-        const data = await response.json()
-        console.log(data)
+        const json = await response.json()
+        console.log(json)
       }}
     >
       <h1>Signup</h1>

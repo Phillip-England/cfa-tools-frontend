@@ -15,7 +15,6 @@ export const ProtectedRoutes: React.FC = () => {
 
   useEffect(() => {
     getUser().then(async (res) => {
-      console.log("running auth")
       if (res.status !== 200) {
         setRedirect(true)
       }

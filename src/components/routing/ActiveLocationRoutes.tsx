@@ -18,7 +18,6 @@ export const ActiveLocationRoutes: React.FC = () => {
 
   useEffect(() => {
     getActiveLocation().then(async (res) => {
-      console.log("getting active location")
       if (res.status !== 200) {
         setRedirect(true)
       }

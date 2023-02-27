@@ -2,8 +2,8 @@ import { useState } from "react"
 import { Navigate } from "react-router-dom"
 
 export const LoginForm: React.FC = () => {
-  const [email, setEmail] = useState("phillip@gmail.com")
-  const [password, setPassword] = useState("newpassword")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   const [navigate, setNavigate] = useState(false)
 
   interface RequestBody {
