@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom"
 export const LocationLayout: React.FC = () => {
   return (
     <>
-      <Link to="/location">Home</Link>
+      <Link to="/location">Tools</Link>
       <br></br>
       <Link to="/location/settings">Settings</Link>
       <br></br>

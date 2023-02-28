@@ -1,8 +1,8 @@
-import { User } from "../types/User"
+import { User } from "../../types/User"
 import { useContext, useEffect, useState } from "react"
-import { getUser } from "../requests/getUser"
+import { getUser } from "../../requests/getUser"
 import { Navigate, Outlet } from "react-router-dom"
-import { MasterContext } from "./MasterContext"
+import { MasterContext } from "../MasterContext"
 
 export const ProtectedRoutes: React.FC = () => {
   const masterContext = useContext(MasterContext)
@@ -25,15 +25,5 @@ export const ProtectedRoutes: React.FC = () => {
     })
   }, [page])
 
-  return (
-    <>
-      {appLoading ? (
-        <p>Loading...</p>
-      ) : redirect ? (
-        <Navigate to="/" />
-      ) : (
-        <Outlet />
-      )}
-    </>
-  )
+  return <>{redirect ? <Navigate to="/" /> : <Outlet />}</>
 }

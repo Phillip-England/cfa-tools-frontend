@@ -11,7 +11,8 @@ interface MasterContextProps {
   setPage: React.Dispatch<React.SetStateAction<string | null>>
   user: null | User
   setUser: React.Dispatch<React.SetStateAction<User | null>>
-  //route type to be added
+  locations: null | Location[]
+  setLocations: React.Dispatch<React.SetStateAction<null | Location[]>>
 }
 
 export const MasterContext = createContext<MasterContextProps>({
@@ -23,4 +24,6 @@ export const MasterContext = createContext<MasterContextProps>({
   setPage: () => {},
   user: null,
   setUser: () => {},
+  locations: null,
+  setLocations: () => {},
 })

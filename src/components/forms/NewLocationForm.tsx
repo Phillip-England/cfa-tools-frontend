@@ -2,17 +2,9 @@ import React, { useState, useContext } from "react"
 import { Location } from "../../types/Location"
 import { MasterContext } from "../MasterContext"
 
-interface Props {
-  operations: number
-  setOperations: React.Dispatch<React.SetStateAction<number>>
-}
-
-export const NewLocationForm: React.FC<Props> = ({
-  operations,
-  setOperations,
-}) => {
+export const NewLocationForm: React.FC = () => {
   const masterContext = useContext(MasterContext)
-  const { user, setAppLoading } = masterContext
+  const { user, setAppLoading, locations, setLocations } = masterContext
   const [name, setName] = useState("")
   const [number, setNumber] = useState("")
 
@@ -25,8 +17,10 @@ export const NewLocationForm: React.FC<Props> = ({
   return (
     <form
       onSubmit={async (e) => {
-        setAppLoading(true)
         e.preventDefault()
+        let locationsModified: Location[] = []
+        let locationsCopy = locations
+        setLocations(null)
         const body: RequestBody = {
           name: name,
           number: number,
@@ -44,9 +38,13 @@ export const NewLocationForm: React.FC<Props> = ({
           name: json.data.name,
           number: json.data.number,
         }
-        let newCount = operations + 1
-        setOperations(newCount)
-        setAppLoading(false)
+        if (locationsCopy != null) {
+          for (let x = 0; x < locationsCopy?.length; x++) {
+            locationsModified.push(locationsCopy[x])
+          }
+        }
+        locationsModified.push(location)
+        setLocations(locationsModified)
       }}
     >
       <h1>Create a Location</h1>

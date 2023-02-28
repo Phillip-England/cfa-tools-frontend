@@ -10,6 +10,7 @@ export const MasterProvider: React.FC<{
   const [appLoading, setAppLoading] = useState<boolean | null>(null)
   const [page, setPage] = useState<null | string>(null)
   const [user, setUser] = useState<null | User>(null)
+  const [locations, setLocations] = useState<null | Location[]>(null)
 
   return (
     <>
@@ -23,6 +24,8 @@ export const MasterProvider: React.FC<{
           setPage,
           user,
           setUser,
+          locations,
+          setLocations,
         }}
       >
         {children}
