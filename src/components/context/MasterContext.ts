@@ -1,6 +1,7 @@
 import { createContext } from "react"
-import { User } from "../types/User"
-import { Location } from "../types/Location"
+import { User } from "../../types/User"
+import { Location } from "../../types/Location"
+import { Cares } from "../../types/Cares"
 
 interface MasterContextProps {
   appLoading: boolean | null
@@ -13,6 +14,8 @@ interface MasterContextProps {
   setUser: React.Dispatch<React.SetStateAction<User | null>>
   locations: null | Location[]
   setLocations: React.Dispatch<React.SetStateAction<null | Location[]>>
+  cares: null | Cares[]
+  setCares: React.Dispatch<React.SetStateAction<null | Cares[]>>
 }
 
 export const MasterContext = createContext<MasterContextProps>({
@@ -26,4 +29,6 @@ export const MasterContext = createContext<MasterContextProps>({
   setUser: () => {},
   locations: null,
   setLocations: () => {},
+  cares: null,
+  setCares: () => {},
 })

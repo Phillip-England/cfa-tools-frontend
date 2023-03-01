@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom"
 import { selectLocation } from "../requests/selectLocation"
 import { NewLocationForm } from "../components/forms/NewLocationForm"
 import { deleteLocation } from "../requests/deleteLocation"
-import { MasterContext } from "../components/MasterContext"
+import { MasterContext } from "../components/context/MasterContext"
 
 export const UserHome: React.FC = () => {
   const masterContext = useContext(MasterContext)

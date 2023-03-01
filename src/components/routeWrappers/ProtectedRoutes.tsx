@@ -2,11 +2,11 @@ import { User } from "../../types/User"
 import { useContext, useEffect, useState } from "react"
 import { getUser } from "../../requests/getUser"
 import { Navigate, Outlet } from "react-router-dom"
-import { MasterContext } from "../MasterContext"
+import { MasterContext } from "../context/MasterContext"
 
 export const ProtectedRoutes: React.FC = () => {
   const masterContext = useContext(MasterContext)
-  const { page, appLoading, setAppLoading, setUser } = masterContext
+  const { page, setUser } = masterContext
   const [redirect, setRedirect] = useState<boolean>(false)
 
   useEffect(() => {
@@ -21,7 +21,6 @@ export const ProtectedRoutes: React.FC = () => {
         _csrf: json._csrf,
       }
       setUser(user)
-      setAppLoading(false)
     })
   }, [page])
 

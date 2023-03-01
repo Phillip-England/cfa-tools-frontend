@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react"
 import { Location } from "../../types/Location"
-import { MasterContext } from "../MasterContext"
+import { MasterContext } from "../context/MasterContext"
 
 export const NewLocationForm: React.FC = () => {
   const masterContext = useContext(MasterContext)

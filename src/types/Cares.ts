@@ -1,4 +1,4 @@
-export interface Cares {
+export type Cares = {
   _id: string
   location: string
   user: string
@@ -6,4 +6,5 @@ export interface Cares {
   orderNumber: string
   incident: string
   replacementAction: string
+  replacementCode: string
 }

@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react"
-import { MasterContext } from "../components/MasterContext"
+import { MasterContext } from "../components/context/MasterContext"
 
 export const UserSettings: React.FC = () => {
   const masterContext = useContext(MasterContext)

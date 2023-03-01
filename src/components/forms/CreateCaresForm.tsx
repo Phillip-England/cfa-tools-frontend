@@ -1,18 +1,15 @@
 import React, { useState, useContext } from "react"
-import { Location } from "../../types/Location"
-import { MasterContext } from "../MasterContext"
+import { MasterContext } from "../context/MasterContext"
+import { Navigate } from "react-router-dom"
 
-interface Props {
-  setReplacementCode: React.Dispatch<React.SetStateAction<string | null>>
-}
-
-export const CreateCaresForm: React.FC<Props> = ({ setReplacementCode }) => {
+export const CreateCaresForm: React.FC = () => {
   const masterContext = useContext(MasterContext)
-  const { user, setAppLoading, activeLocation } = masterContext
+  const { user, activeLocation, setCares } = masterContext
   const [guestName, setGuestName] = useState("")
   const [orderNumber, setOrderNumber] = useState("")
   const [incident, setIncident] = useState("")
   const [replacementAction, setReplacementAction] = useState("")
+  const [caresID, setCaresID] = useState<string | null>(null)
 
   interface RequestBody {
     locationID: string | undefined
@@ -35,17 +32,17 @@ export const CreateCaresForm: React.FC<Props> = ({ setReplacementCode }) => {
           replacementAction: replacementAction,
           _csrf: user?._csrf,
         }
-        console.log(body)
         const response = await fetch("http://localhost:8080/cares/create", {
           method: "POST",
           credentials: "include",
           body: await JSON.stringify(body),
         })
         const json = await response.json()
-        setReplacementCode(json.data.replacementCodeString)
-        console.log(json)
+        setCares(null)
+        setCaresID(json.data._id)
       }}
     >
+      {caresID ? <Navigate to={`/cares/view/${caresID}`} /> : null}
       <h1>Create Cares</h1>
       <label>Guest Name</label>
       <input

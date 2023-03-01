@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { deleteLocation } from "../requests/deleteLocation"
 import { Navigate } from "react-router-dom"
-import { MasterContext } from "../components/MasterContext"
+import { MasterContext } from "../components/context/MasterContext"
 
 export const LocationSettings: React.FC = () => {
   const masterContext = useContext(MasterContext)

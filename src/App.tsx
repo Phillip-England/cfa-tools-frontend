@@ -11,11 +11,12 @@ import { LocationLayout } from "./layouts/LocationLayout"
 import { LocationRoutes } from "./components/routeWrappers/LocationRoutes"
 import { LocationSettings } from "./views/LocationSettings"
 import { GuestLayout } from "./layouts/GuestLayout"
-import { MasterProvider } from "./components/MasterProvider"
+import { MasterProvider } from "./components/context/MasterProvider"
 import { UserRoutes } from "./components/routeWrappers/UserRoutes"
 import { CaresRoutes } from "./components/routeWrappers/CaresRoutes"
 import { CaresHome } from "./views/CaresHome"
 import { CaresLayout } from "./layouts/CaresLayout"
+import { CaresDetail } from "./views/CaresDetail"
 
 function App() {
   return (
@@ -62,10 +63,9 @@ function App() {
             {/* because cares routes must contain an active location */}
             <Route path="/cares" element={<CaresLayout />}>
               <Route element={<ProtectedRoutes />}>
-                <Route element={<LocationRoutes />}>
-                  <Route element={<CaresRoutes />}>
-                    <Route index element={<CaresHome />} />
-                  </Route>
+                <Route element={<CaresRoutes />}>
+                  <Route index element={<CaresHome />} />
+                  <Route path="/cares/view/:id" element={<CaresDetail />} />
                 </Route>
               </Route>
             </Route>

@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
 import { Outlet } from "react-router-dom"
-import { MasterContext } from "../MasterContext"
+import { MasterContext } from "../context/MasterContext"
 import { dropActiveLocation } from "../../requests/dropActiveLocation"
 
 /*

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { getUser } from "../../requests/getUser"
 import { Navigate, Outlet } from "react-router-dom"
-import { MasterContext } from "../MasterContext"
+import { MasterContext } from "../context/MasterContext"
 
 export const GuestRoutes: React.FC = () => {
   const masterContext = useContext(MasterContext)

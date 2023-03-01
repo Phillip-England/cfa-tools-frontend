@@ -1,9 +1,8 @@
-import { User } from "../../types/User"
 import { useContext, useEffect, useState } from "react"
 import { Navigate, Outlet } from "react-router-dom"
 import { getActiveLocation } from "../../requests/getActiveLocation"
 import { Location } from "../../types/Location"
-import { MasterContext } from "../MasterContext"
+import { MasterContext } from "../context/MasterContext"
 
 /*
 This wrapper helps to always ensure we have an active location.
@@ -14,10 +13,12 @@ It will push us back to the application homescreen
 
 export const LocationRoutes: React.FC = () => {
   const masterContext = useContext(MasterContext)
-  const { page, setActiveLocation, activeLocation } = masterContext
+  const { page, setActiveLocation, activeLocation, setCares } = masterContext
   const [redirect, setRedirect] = useState<boolean>(false)
 
   useEffect(() => {
+    // resources must be dropped to ensure reload upon entering a new tool
+    setCares(null)
     // if the active location has not been set, set it
     if (activeLocation == null) {
       getActiveLocation().then(async (res) => {

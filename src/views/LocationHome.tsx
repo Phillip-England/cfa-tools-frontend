@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react"
-import { MasterContext } from "../components/MasterContext"
+import { MasterContext } from "../components/context/MasterContext"
 import { Link } from "react-router-dom"
 export const LocationHome: React.FC = () => {
   const masterContext = useContext(MasterContext)
