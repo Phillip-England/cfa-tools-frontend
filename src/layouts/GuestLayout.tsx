@@ -1,10 +1,10 @@
 import { Link, Outlet } from "react-router-dom"
+import { Navbar } from "../components/navigation/Navbar"
 
 export const GuestLayout: React.FC = () => {
   return (
     <>
-      <Link to="/">Home</Link>
-      <br></br>
+      <Navbar />
       <Outlet />
     </>
   )

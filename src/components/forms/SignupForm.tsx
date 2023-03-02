@@ -11,6 +11,7 @@ export const SignupForm: React.FC = () => {
 
   return (
     <form
+      className="m-4 flex flex-col rounded bg-white p-4"
       onSubmit={async (e) => {
         e.preventDefault()
         const body: RequestBody = {
@@ -25,24 +26,29 @@ export const SignupForm: React.FC = () => {
         console.log(json)
       }}
     >
-      <h1>Signup</h1>
-      <label>Email</label>
+      <h1 className="mb-4 text-lg">Signup</h1>
+      <label className="text-sm">Email</label>
       <input
+        className="mb-2"
         type="text"
         value={email}
         onChange={(e) => {
           setEmail(e.target.value)
         }}
       />
-      <label>Password</label>
+      <label className="text-sm">Password</label>
       <input
+        className="mb-4"
         type="text"
         value={password}
         onChange={(e) => {
           setPassword(e.target.value)
         }}
       />
-      <input type="submit" />
+      <input
+        className="text-md rounded border border-solid border-black p-2"
+        type="submit"
+      />
     </form>
   )
 }
