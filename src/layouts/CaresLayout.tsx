@@ -7,6 +7,7 @@ export const CaresLayout: React.FC = () => {
       <br></br>
       <Link to="/location">Tools</Link>
       <br></br>
+      <Link to="/app/logout">Logout</Link>
       <Outlet />
     </>
   )

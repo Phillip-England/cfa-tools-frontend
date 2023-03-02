@@ -1,33 +1,51 @@
 import { MasterContext } from "./context/MasterContext"
 import { useContext, useEffect, useState } from "react"
-import { deleteCares } from "../requests/deleteCares"
 import { Navigate } from "react-router-dom"
+import { filterCares } from "../lib/filterCares"
+import { CaresItem } from "./CaresItem"
+import { Cares } from "../types/Cares"
 
-export const CaresList: React.FC = () => {
+type Props = {
+  search: string | null
+  setSelectedID: React.Dispatch<React.SetStateAction<string | null>>
+}
+
+export const CaresList: React.FC<Props> = ({ search, setSelectedID }) => {
   const masterContext = useContext(MasterContext)
-  const { page, cares, setCares } = masterContext
-  const [id, setID] = useState<null | string>(null)
+  const { cares } = masterContext
+  const [filter, setFilter] = useState<null | Cares[]>(null)
+
+  useEffect(() => {
+    if (search == null || cares == null) {
+      setFilter(null)
+      return
+    }
+    setFilter(filterCares(search, cares))
+  }, [search])
 
   return (
     <>
-      {id ? <Navigate to={`/cares/view/${id}`} /> : null}
       {cares ? (
         <div>
-          {cares.map((care) => (
-            <div key={care._id} style={{ border: "solid black 1px" }}>
-              <p>Name: {care.guestName}</p>
-              <p>Incident: {care.incident}</p>
-              <p>Action: {care.replacementAction}</p>
-              <p>Code: {care.replacementCode}</p>
-              <button
-                onClick={() => {
-                  setID(care._id)
-                }}
-              >
-                View
-              </button>
-            </div>
-          ))}
+          {filter ? (
+            <>
+              {filter.map((caresItem) => (
+                <CaresItem
+                  caresItem={caresItem}
+                  setSelectedID={setSelectedID}
+                />
+              ))}
+            </>
+          ) : (
+            <>
+              {cares.map((caresItem) => (
+                <CaresItem
+                  caresItem={caresItem}
+                  setSelectedID={setSelectedID}
+                />
+              ))}
+            </>
+          )}
         </div>
       ) : (
         <p>Loading...</p>

@@ -8,6 +8,9 @@ export const LocationLayout: React.FC = () => {
       <Link to="/location/settings">Settings</Link>
       <br></br>
       <Link to="/app">Change Locations</Link>
+      <br></br>
+      <Link to="/app/logout">Logout</Link>
+
       <Outlet />
     </>
   )

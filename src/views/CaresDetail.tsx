@@ -14,6 +14,7 @@ export const CaresDetail: React.FC = () => {
   const [currentCares, setCurrentCares] = useState<Cares | null>(null)
 
   useEffect(() => {
+    setPage(`/cares/view/${id}`)
     if (id == undefined) {
       setRedirect(true)
       return
