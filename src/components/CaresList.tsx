@@ -1,6 +1,5 @@
 import { MasterContext } from "./context/MasterContext"
 import { useContext, useEffect, useState } from "react"
-import { Navigate } from "react-router-dom"
 import { filterCares } from "../lib/filterCares"
 import { CaresItem } from "./CaresItem"
 import { Cares } from "../types/Cares"
