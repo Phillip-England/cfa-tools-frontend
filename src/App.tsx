@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { GuestHome } from "./views/GuestHome"
+import { LoginPage } from "./views/LoginPage"
 import { UserHome } from "./views/UserHome"
 import { ProtectedRoutes } from "./components/routeWrappers/ProtectedRoutes"
 import { GuestRoutes } from "./components/routeWrappers/GuestRoutes"
@@ -17,6 +17,7 @@ import { CaresRoutes } from "./components/routeWrappers/CaresRoutes"
 import { CaresHome } from "./views/CaresHome"
 import { CaresLayout } from "./layouts/CaresLayout"
 import { CaresDetail } from "./views/CaresDetail"
+import { SignupPage } from "./views/SignupPage"
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
             {/* logged in users cannot access these without first logging out */}
             <Route path="/" element={<GuestLayout />}>
               <Route element={<GuestRoutes />}>
-                <Route index element={<GuestHome />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignupPage />} />
               </Route>
             </Route>
             {/* The layout is placed above protected routes */}

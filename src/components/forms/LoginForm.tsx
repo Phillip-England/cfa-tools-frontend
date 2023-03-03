@@ -32,10 +32,10 @@ export const LoginForm: React.FC = () => {
           }
         }}
       >
-        <h1 className="text-md mb-4">Log In</h1>
+        <h1 className="mb-4 text-lg">Log In</h1>
         <label className="mb-1 text-xs">Email</label>
         <input
-          className="mb-4 border border-x-0 border-t-0 border-gray-300"
+          className="mb-4 border border-x-0 border-t-0 border-gray-300 outline-none focus:border-black"
           type="text"
           value={email}
           onChange={(e) => {
@@ -44,7 +44,7 @@ export const LoginForm: React.FC = () => {
         />
         <label className="mb-1 text-xs">Password</label>
         <input
-          className="mb-4 border border-x-0 border-t-0 border-gray-300"
+          className="mb-4 border border-x-0 border-t-0 border-gray-300 outline-none focus:border-black"
           type="text"
           value={password}
           onChange={(e) => {

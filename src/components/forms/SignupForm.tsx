@@ -27,18 +27,18 @@ export const SignupForm: React.FC = () => {
       }}
     >
       <h1 className="mb-4 text-lg">Signup</h1>
-      <label className="text-sm">Email</label>
+      <label className="mb-1 text-xs">Email</label>
       <input
-        className="mb-2"
+        className="mb-4 border border-x-0 border-t-0 border-gray-300 outline-none focus:border-black"
         type="text"
         value={email}
         onChange={(e) => {
           setEmail(e.target.value)
         }}
       />
-      <label className="text-sm">Password</label>
+      <label className="mb-1 text-xs">Password</label>
       <input
-        className="mb-4"
+        className="mb-4 border border-x-0 border-t-0 border-gray-300 outline-none focus:border-black"
         type="text"
         value={password}
         onChange={(e) => {
@@ -46,7 +46,7 @@ export const SignupForm: React.FC = () => {
         }}
       />
       <input
-        className="text-md rounded border border-solid border-black p-2"
+        className="border bg-cfared p-1 text-sm text-white"
         type="submit"
       />
     </form>
