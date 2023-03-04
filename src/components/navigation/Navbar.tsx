@@ -32,7 +32,7 @@ export const Navbar: React.FC<Props> = ({
             {navMenu}
           </div>
           <div
-            className="fixed h-screen w-screen bg-black opacity-40"
+            className="fixed z-40 h-screen w-screen bg-black opacity-40"
             onClick={() => {
               setMenuActive(false)
             }}

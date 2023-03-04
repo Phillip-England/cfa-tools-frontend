@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         cfared: "#E5173F",
         lightgray: "#e3e3e3",
+        cfablue: "#1662DD",
       },
     },
   },

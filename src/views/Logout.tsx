@@ -1,5 +1,4 @@
-import { PageContext } from "../components/context/PageContext"
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { logoutUser } from "../requests/logoutUser"
 import { Navigate } from "react-router-dom"
 
@@ -19,5 +18,5 @@ export const Logout: React.FC = () => {
     })
   }, [])
 
-  return <>{redirect ? <Navigate to="/" /> : <p>Loading...</p>}</>
+  return <>{redirect ? <Navigate to="/login" /> : <p>Loading...</p>}</>
 }

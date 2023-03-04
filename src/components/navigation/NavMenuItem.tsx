@@ -15,7 +15,7 @@ export const NavMenuItem: React.FC<Props> = ({ text, to, setMenuActive }) => {
         }}
         to={to}
         className={({ isActive }) =>
-          isActive ? "w-full p-4 text-cfared" : "w-full p-4 text-black"
+          isActive ? "w-full p-4 text-lg text-cfablue" : "w-full p-4 text-black"
         }
       >
         {text}
