@@ -1,8 +1,8 @@
-import { MasterContext } from "./context/MasterContext"
+import { MasterContext } from "../context/MasterContext"
 import { useContext, useEffect, useState } from "react"
-import { filterCares } from "../lib/filterCares"
+import { filterCares } from "../../lib/filterCares"
 import { CaresItem } from "./CaresItem"
-import { Cares } from "../types/Cares"
+import { Cares } from "../../types/Cares"
 
 type Props = {
   search: string | null

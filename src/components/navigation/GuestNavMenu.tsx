@@ -1,12 +1,23 @@
-import { NavLink } from "react-router-dom"
 import { NavMenuItem } from "./NavMenuItem"
 
-export const GuestNavMenu: React.FC = () => {
+type Props = {
+  setMenuActive: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export const GuestNavMenu: React.FC<Props> = ({ setMenuActive }) => {
   return (
     <>
-      <ul>
-        <NavMenuItem text={"Log In"} to={"/login"} />
-        <NavMenuItem text={"Sign Up"} to={"/signup"} />
+      <ul className="flex w-full flex-col">
+        <NavMenuItem
+          text={"Log In"}
+          to={"/login"}
+          setMenuActive={setMenuActive}
+        />
+        <NavMenuItem
+          text={"Sign Up"}
+          to={"/signup"}
+          setMenuActive={setMenuActive}
+        />
       </ul>
     </>
   )

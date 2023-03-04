@@ -1,4 +1,4 @@
-import { Cares } from "../types/Cares"
+import { Cares } from "../../types/Cares"
 
 type Props = {
   caresItem: Cares

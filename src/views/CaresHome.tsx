@@ -1,8 +1,8 @@
 import { useEffect, useContext, useState } from "react"
 import { MasterContext } from "../components/context/MasterContext"
 import { CreateCaresForm } from "../components/forms/CreateCaresForm"
-import { CaresList } from "../components/CaresList"
-import { CaresSearchBar } from "../components/CaresSearchBar"
+import { CaresList } from "../components/cares/CaresList"
+import { CaresSearchBar } from "../components/cares/CaresSearchBar"
 import { Navigate } from "react-router-dom"
 
 export const CaresHome: React.FC = () => {

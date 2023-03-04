@@ -15,7 +15,7 @@ export const LoginForm: React.FC = () => {
     <>
       {navigate ? <Navigate to="/app" /> : null}
       <form
-        className="m-4 flex flex-col bg-white p-4"
+        className="m-2 flex flex-col rounded bg-white p-6"
         onSubmit={async (e) => {
           e.preventDefault()
           const body: RequestBody = {
@@ -35,7 +35,7 @@ export const LoginForm: React.FC = () => {
         <h1 className="mb-4 text-lg">Log In</h1>
         <label className="mb-1 text-xs">Email</label>
         <input
-          className="mb-4 border border-x-0 border-t-0 border-gray-300 outline-none focus:border-black"
+          className="mb-4 border border-x-0 border-t-0 border-gray-300 outline-none focus:border-cfared"
           type="text"
           value={email}
           onChange={(e) => {
@@ -44,14 +44,17 @@ export const LoginForm: React.FC = () => {
         />
         <label className="mb-1 text-xs">Password</label>
         <input
-          className="mb-4 border border-x-0 border-t-0 border-gray-300 outline-none focus:border-black"
+          className="mb-8 border border-x-0 border-t-0 border-gray-300 outline-none focus:border-cfared"
           type="text"
           value={password}
           onChange={(e) => {
             setPassword(e.target.value)
           }}
         />
-        <input className=" bg-cfared p-1 text-sm text-white" type="submit" />
+        <input
+          className=" rounded bg-cfared p-1 text-sm text-white"
+          type="submit"
+        />
       </form>
     </>
   )

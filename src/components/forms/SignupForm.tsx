@@ -11,7 +11,7 @@ export const SignupForm: React.FC = () => {
 
   return (
     <form
-      className="m-4 flex flex-col rounded bg-white p-4"
+      className="m-2 flex flex-col rounded bg-white p-6"
       onSubmit={async (e) => {
         e.preventDefault()
         const body: RequestBody = {
@@ -26,10 +26,10 @@ export const SignupForm: React.FC = () => {
         console.log(json)
       }}
     >
-      <h1 className="mb-4 text-lg">Signup</h1>
+      <h1 className="mb-4 text-lg">Sign Up</h1>
       <label className="mb-1 text-xs">Email</label>
       <input
-        className="mb-4 border border-x-0 border-t-0 border-gray-300 outline-none focus:border-black"
+        className="mb-4 border border-x-0 border-t-0 border-gray-300 outline-none focus:border-cfared"
         type="text"
         value={email}
         onChange={(e) => {
@@ -38,7 +38,7 @@ export const SignupForm: React.FC = () => {
       />
       <label className="mb-1 text-xs">Password</label>
       <input
-        className="mb-4 border border-x-0 border-t-0 border-gray-300 outline-none focus:border-black"
+        className="mb-8 border border-x-0 border-t-0 border-gray-300 outline-none focus:border-cfared"
         type="text"
         value={password}
         onChange={(e) => {
@@ -46,7 +46,7 @@ export const SignupForm: React.FC = () => {
         }}
       />
       <input
-        className="border bg-cfared p-1 text-sm text-white"
+        className="rounded border bg-cfared p-1 text-sm text-white"
         type="submit"
       />
     </form>
