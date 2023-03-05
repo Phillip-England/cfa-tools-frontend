@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { FormError } from "../formComponents/FormError"
 import { FormLoader } from "../formComponents/FormLoader"
+import { apiUrl } from "../../lib/apiUrl"
 
 export const SignupForm: React.FC = () => {
   const [email, setEmail] = useState("")
@@ -17,7 +18,7 @@ export const SignupForm: React.FC = () => {
 
   return (
     <form
-      className="m-2 flex flex-col rounded bg-white p-6"
+      className="m-2 flex flex-col rounded bg-white p-6 shadow-md"
       onSubmit={async (e) => {
         setErr("")
         setLoading(true)
@@ -27,7 +28,7 @@ export const SignupForm: React.FC = () => {
           password: password,
           confirmPassword: confirmPassword,
         }
-        const response = await fetch("http://localhost:8080/user/create", {
+        const response = await fetch(apiUrl("/user/create"), {
           method: "POST",
           body: await JSON.stringify(body),
         })
@@ -51,7 +52,7 @@ export const SignupForm: React.FC = () => {
       />
       <label className="mb-1 text-xs">Password</label>
       <input
-        className="mb-8 border border-x-0 border-t-0 border-gray-300 outline-none focus:border-black"
+        className="mb-4 border border-x-0 border-t-0 border-gray-300 outline-none focus:border-black"
         type="text"
         value={password}
         onChange={(e) => {

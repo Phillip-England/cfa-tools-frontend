@@ -24,5 +24,5 @@ export const ProtectedRoutes: React.FC = () => {
     })
   }, [page])
 
-  return <>{redirect ? <Navigate to="/" /> : <Outlet />}</>
+  return <>{redirect ? <Navigate to="/login" /> : <Outlet />}</>
 }

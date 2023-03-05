@@ -2,10 +2,11 @@ import { useState } from "react"
 import { Navigate } from "react-router-dom"
 import { FormError } from "../formComponents/FormError"
 import { FormLoader } from "../formComponents/FormLoader"
+import { apiUrl } from "../../lib/apiUrl"
 
 export const LoginForm: React.FC = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("a@gmail.com")
+  const [password, setPassword] = useState("password")
   const [navigate, setNavigate] = useState(false)
   const [loading, setLoading] = useState(false)
   const [err, setErr] = useState("")
@@ -17,9 +18,9 @@ export const LoginForm: React.FC = () => {
 
   return (
     <>
-      {navigate ? <Navigate to="/app" /> : null}
+      {navigate ? <Navigate to="/app/locations" /> : null}
       <form
-        className="m-2 flex flex-col rounded bg-white p-6"
+        className="m-2 flex flex-col rounded bg-white p-6 shadow-md"
         onSubmit={async (e) => {
           setErr("")
           setLoading(true)
@@ -28,7 +29,7 @@ export const LoginForm: React.FC = () => {
             email: email,
             password: password,
           }
-          const response = await fetch("http://localhost:8080/user/login", {
+          const response = await fetch(apiUrl("/user/login"), {
             method: "POST",
             credentials: "include",
             body: await JSON.stringify(body),

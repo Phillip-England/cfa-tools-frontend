@@ -1,17 +1,22 @@
-import { Link, Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom"
+import { MainContentWrapper } from "../components/MainContentWrapper"
+import { LocationNavMenu } from "../components/navigation/LocationNavMenu"
+import { Navbar } from "../components/navigation/Navbar"
+import { Footer } from "../components/footer/Footer"
+import { useState } from "react"
 
 export const LocationLayout: React.FC = () => {
+  const [menuActive, setMenuActive] = useState<boolean>(false)
+
   return (
     <>
-      <Link to="/location">Tools</Link>
-      <br></br>
-      <Link to="/location/settings">Settings</Link>
-      <br></br>
-      <Link to="/app">Change Locations</Link>
-      <br></br>
-      <Link to="/app/logout">Logout</Link>
-
-      <Outlet />
+      <Navbar
+        setMenuActive={setMenuActive}
+        menuActive={menuActive}
+        navMenu={<LocationNavMenu setMenuActive={setMenuActive} />}
+      />
+      <MainContentWrapper outlet={<Outlet />} />
+      <Footer />
     </>
   )
 }

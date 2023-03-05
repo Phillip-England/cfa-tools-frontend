@@ -5,7 +5,7 @@ import { MasterContext } from "../components/context/MasterContext"
 
 export const LocationSettings: React.FC = () => {
   const masterContext = useContext(MasterContext)
-  const { setPage, activeLocation } = masterContext
+  const { setPage, activeLocation, setLocations } = masterContext
   const [redirect, setRedirect] = useState<boolean>(false)
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export const LocationSettings: React.FC = () => {
 
   return (
     <>
-      {redirect ? <Navigate to="/app" /> : null}
+      {redirect ? <Navigate to="/app/locations" /> : null}
       <h1>Location Settings</h1>
       <button
         onClick={async (e) => {
@@ -23,6 +23,7 @@ export const LocationSettings: React.FC = () => {
             if (res.status == 200) {
               setRedirect(true)
             }
+            setLocations(null)
           }
         }}
       >

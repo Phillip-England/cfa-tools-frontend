@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { LoginPage } from "./views/LoginPage"
-import { UserHome } from "./views/UserHome"
+import { UserLocations } from "./views/UserLocations"
 import { ProtectedRoutes } from "./components/routeWrappers/ProtectedRoutes"
 import { GuestRoutes } from "./components/routeWrappers/GuestRoutes"
 import { Logout } from "./views/Logout"
 import { UserLayout } from "./layouts/UserLayout"
 import { UserSettings } from "./views/UserSettings"
-import { LocationHome } from "./views/LocationHome"
+import { LocationTools } from "./views/LocationTools"
 import { LocationLayout } from "./layouts/LocationLayout"
 import { LocationRoutes } from "./components/routeWrappers/LocationRoutes"
 import { LocationSettings } from "./views/LocationSettings"
@@ -39,9 +39,9 @@ function App() {
             <Route path="/app" element={<UserLayout />}>
               <Route element={<ProtectedRoutes />}>
                 <Route element={<UserRoutes />}>
-                  <Route index element={<UserHome />} />
+                  <Route path="/app/locations" element={<UserLocations />} />
                   <Route path="/app/settings" element={<UserSettings />} />
-                  <Route path="/app/location" element={<LocationHome />} />
+                  <Route path="/app/location" element={<LocationTools />} />
                   <Route path="/app/logout" element={<Logout />} />
                 </Route>
               </Route>
@@ -52,7 +52,7 @@ function App() {
             <Route path="/location" element={<LocationLayout />}>
               <Route element={<ProtectedRoutes />}>
                 <Route element={<LocationRoutes />}>
-                  <Route index element={<LocationHome />} />
+                  <Route path="/location/tools" element={<LocationTools />} />
                   <Route
                     path="/location/settings"
                     element={<LocationSettings />}
@@ -66,7 +66,7 @@ function App() {
             <Route path="/cares" element={<CaresLayout />}>
               <Route element={<ProtectedRoutes />}>
                 <Route element={<CaresRoutes />}>
-                  <Route index element={<CaresHome />} />
+                  <Route path="/cares/create" element={<CaresHome />} />
                   <Route path="/cares/view/:id" element={<CaresDetail />} />
                 </Route>
               </Route>

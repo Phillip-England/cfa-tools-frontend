@@ -6,15 +6,17 @@ import { selectLocation } from "../requests/selectLocation"
 import { NewLocationForm } from "../components/forms/NewLocationForm"
 import { deleteLocation } from "../requests/deleteLocation"
 import { MasterContext } from "../components/context/MasterContext"
+import { LocationsList } from "../components/locations/LocationsList"
+import { LocationListSkeleton } from "../components/locations/LocationListSkeleton"
 
-export const UserHome: React.FC = () => {
+export const UserLocations: React.FC = () => {
   const masterContext = useContext(MasterContext)
   const { user, setPage, locations, setLocations } = masterContext
   const [loadingLocations, setLoadingLocations] = useState<boolean>(true)
   const [redirect, setRedirect] = useState<boolean>(false)
 
   useEffect(() => {
-    setPage("/app")
+    setPage("/app/locations")
     // only make the api call for locations if we dont have any
     if (locations == null) {
       getLocations().then(async (res) => {
@@ -44,40 +46,15 @@ export const UserHome: React.FC = () => {
   return (
     <>
       <>
-        {redirect ? <Navigate to="/location" /> : null}
+        {redirect ? <Navigate to="/location/tools" /> : null}
         <NewLocationForm />
         {loadingLocations ? (
-          <p>Loading...</p>
+          <LocationListSkeleton />
         ) : (
-          <div>
-            {locations?.map((location) => (
-              <div style={{ border: "solid black 1px" }} key={location._id}>
-                <p>Name: {location.name}</p>
-                <p>Store Number: {location.number}</p>
-                <button
-                  onClick={async (e) => {
-                    setLoadingLocations(true)
-                    let res = await deleteLocation(location._id)
-                    if (res.status == 200) {
-                      setLocations(null)
-                    }
-                  }}
-                >
-                  Delete
-                </button>
-                <button
-                  onClick={async (e) => {
-                    const res = await selectLocation(location._id)
-                    if (res.status == 200) {
-                      setRedirect(true)
-                    }
-                  }}
-                >
-                  Select
-                </button>
-              </div>
-            ))}
-          </div>
+          <LocationsList
+            setLoadingLocations={setLoadingLocations}
+            setRedirect={setRedirect}
+          />
         )}
       </>
     </>

@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react"
 import { MasterContext } from "../context/MasterContext"
 import { Navigate } from "react-router-dom"
+import { apiUrl } from "../../lib/apiUrl"
 
 export const CreateCaresForm: React.FC = () => {
   const masterContext = useContext(MasterContext)
@@ -32,7 +33,7 @@ export const CreateCaresForm: React.FC = () => {
           replacementAction: replacementAction,
           _csrf: user?._csrf,
         }
-        const response = await fetch("http://localhost:8080/cares/create", {
+        const response = await fetch(apiUrl("/cares/create"), {
           method: "POST",
           credentials: "include",
           body: await JSON.stringify(body),

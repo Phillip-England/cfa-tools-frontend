@@ -1,0 +1,22 @@
+THINGS TO BE IMPLEMENTED (delete as you implement)
+
+- whitelisting all values coming through any form
+  - login form
+  - signup form
+  - create location form
+  - creat cares form
+
+- Adding email as a field for stores so emails can be sent to them
+
+- adding account activiation via email
+
+- /app/locations to be styled
+
+- error handling added to create location form
+
+- split app context into smaller bits
+
+- ensure page is updated on every route
+
+- logout not working on deep routes
+
