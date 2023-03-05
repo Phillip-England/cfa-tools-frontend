@@ -46,5 +46,5 @@ export const CaresRoutes: React.FC = () => {
     })
   }, [cares])
 
-  return <>{redirect ? <Navigate to="/app" /> : <Outlet />}</>
+  return <>{redirect ? <Navigate to="/app/locations" /> : <Outlet />}</>
 }

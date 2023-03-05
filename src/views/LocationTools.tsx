@@ -17,8 +17,8 @@ export const LocationTools: React.FC = () => {
       {activeLocation ? (
         <>
           <div className="m-2 rounded bg-white p-4 shadow-md">
-            <h1 className=" text-cfablue">{activeLocation?.name}</h1>
-            <p className="text-sm">#{activeLocation?.number}</p>
+            <h1 className=" font-serif text-cfared">{activeLocation?.name}</h1>
+            <p className="text-xs">#{activeLocation?.number}</p>
           </div>
           <div className="ml-2 mr-2 rounded">
             <div className="rounded bg-white p-4 shadow-md">
@@ -27,7 +27,7 @@ export const LocationTools: React.FC = () => {
                 className="flex items-center justify-between"
               >
                 <div>
-                  <h2 className="font-serif text-cfablue">Cares Log</h2>
+                  <h2 className="font-serif text-cfared">Cares Log</h2>
                   <p className="text-xs">
                     Track your guest experiences and plan resolutions to ammend
                     mistakes
@@ -35,7 +35,7 @@ export const LocationTools: React.FC = () => {
                 </div>
                 <FontAwesomeIcon
                   icon={faFileShield}
-                  className="ml-4 text-cfablue"
+                  className="ml-4 text-cfared"
                 />
               </Link>
             </div>

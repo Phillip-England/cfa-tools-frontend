@@ -70,7 +70,7 @@ export const LoginForm: React.FC = () => {
           </div>
         ) : (
           <input
-            className="rounded border bg-cfablue p-1 text-sm text-white"
+            className="rounded border bg-cfared p-1 text-sm text-white"
             type="submit"
           />
         )}

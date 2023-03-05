@@ -37,5 +37,5 @@ export const LocationRoutes: React.FC = () => {
     }
   }, [page])
 
-  return <>{redirect ? <Navigate to="/app" /> : <Outlet />}</>
+  return <>{redirect ? <Navigate to="/app/locations" /> : <Outlet />}</>
 }
