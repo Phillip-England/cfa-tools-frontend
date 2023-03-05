@@ -26,8 +26,17 @@ export const LocationTools: React.FC = () => {
                 to="/cares/create"
                 className="flex items-center justify-between"
               >
-                <h2 className="">Cares Log</h2>
-                <FontAwesomeIcon icon={faFileShield} className="text-cfablue" />
+                <div>
+                  <h2 className="font-serif text-cfablue">Cares Log</h2>
+                  <p className="text-xs">
+                    Track your guest experiences and plan resolutions to ammend
+                    mistakes
+                  </p>
+                </div>
+                <FontAwesomeIcon
+                  icon={faFileShield}
+                  className="ml-4 text-cfablue"
+                />
               </Link>
             </div>
           </div>
