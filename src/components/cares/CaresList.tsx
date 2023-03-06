@@ -11,7 +11,7 @@ type Props = {
 
 export const CaresList: React.FC<Props> = ({ search, setSelectedID }) => {
   const masterContext = useContext(MasterContext)
-  const { cares } = masterContext
+  const { cares, limitedCares, setLimitedCares } = masterContext
   const [filter, setFilter] = useState<null | Cares[]>(null)
 
   useEffect(() => {
@@ -25,11 +25,12 @@ export const CaresList: React.FC<Props> = ({ search, setSelectedID }) => {
   return (
     <>
       {cares ? (
-        <div>
+        <div className="ml-2 mr-2 flex flex-col gap-2">
           {filter ? (
             <>
               {filter.map((caresItem) => (
                 <CaresItem
+                  key={caresItem._id}
                   caresItem={caresItem}
                   setSelectedID={setSelectedID}
                 />
@@ -39,6 +40,7 @@ export const CaresList: React.FC<Props> = ({ search, setSelectedID }) => {
             <>
               {cares.map((caresItem) => (
                 <CaresItem
+                  key={caresItem._id}
                   caresItem={caresItem}
                   setSelectedID={setSelectedID}
                 />

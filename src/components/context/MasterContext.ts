@@ -4,8 +4,6 @@ import { Location } from "../../types/Location"
 import { Cares } from "../../types/Cares"
 
 interface MasterContextProps {
-  appLoading: boolean | null
-  setAppLoading: React.Dispatch<React.SetStateAction<boolean | null>>
   activeLocation: null | Location
   setActiveLocation: React.Dispatch<React.SetStateAction<Location | null>>
   page: null | string
@@ -16,11 +14,15 @@ interface MasterContextProps {
   setLocations: React.Dispatch<React.SetStateAction<null | Location[]>>
   cares: null | Cares[]
   setCares: React.Dispatch<React.SetStateAction<null | Cares[]>>
+  limitedCares: undefined | Cares[]
+  setLimitedCares: React.Dispatch<React.SetStateAction<undefined | Cares[]>>
+  caresStartRange: number
+  setCaresStartRange: React.Dispatch<React.SetStateAction<number>>
+  caresEndRange: number
+  setCaresEndRange: React.Dispatch<React.SetStateAction<number>>
 }
 
 export const MasterContext = createContext<MasterContextProps>({
-  appLoading: null,
-  setAppLoading: () => {},
   activeLocation: null,
   setActiveLocation: () => {},
   page: null,
@@ -31,4 +33,10 @@ export const MasterContext = createContext<MasterContextProps>({
   setLocations: () => {},
   cares: null,
   setCares: () => {},
+  limitedCares: undefined,
+  setLimitedCares: () => {},
+  caresStartRange: 0,
+  setCaresStartRange: () => {},
+  caresEndRange: 15,
+  setCaresEndRange: () => {},
 })

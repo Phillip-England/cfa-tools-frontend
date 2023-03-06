@@ -18,5 +18,5 @@ THINGS TO BE IMPLEMENTED (delete as you implement)
 
 - ensure page is updated on every route
 
-- logout not working on deep routes
+- spell check disable on every form
 

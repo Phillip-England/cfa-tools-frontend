@@ -22,7 +22,9 @@ export const LocationItem: React.FC<Props> = ({ location, setRedirect }) => {
       }}
     >
       <div>
-        <p className=" font-serif text-cfared">{location.name}</p>
+        <p className=" cursor-default font-serif text-cfared">
+          {location.name}
+        </p>
         <p className="text-sm">#{location.number}</p>
       </div>
       <FontAwesomeIcon

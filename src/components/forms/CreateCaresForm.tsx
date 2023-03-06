@@ -23,6 +23,7 @@ export const CreateCaresForm: React.FC = () => {
 
   return (
     <form
+      className="m-2 flex flex-col rounded bg-white p-6 shadow-md"
       onSubmit={async (e) => {
         e.preventDefault()
         const body: RequestBody = {
@@ -44,38 +45,51 @@ export const CreateCaresForm: React.FC = () => {
       }}
     >
       {caresID ? <Navigate to={`/cares/view/${caresID}`} /> : null}
-      <h1>Create Cares</h1>
-      <label>Guest Name</label>
+      <h1 className="mb-4 font-serif text-lg text-cfared">Create Cares</h1>
+      <label className="mb-1 text-sm">Guest Name</label>
       <input
+        spellCheck={false}
+        className="mb-4 border border-x-0 border-t-0 border-gray-300 py-2 text-xs outline-none focus:border-black"
         type="text"
         value={guestName}
         onChange={(e) => {
           setGuestName(e.target.value)
         }}
       />
-      <label>Order Number</label>
+      <label className="mb-1 text-sm">Order Number</label>
       <input
+        spellCheck={false}
+        className="mb-4 border border-x-0 border-t-0 border-gray-300 py-2 text-xs outline-none focus:border-black"
         type="text"
         value={orderNumber}
         onChange={(e) => {
           setOrderNumber(e.target.value)
         }}
       />
-      <label>Describe the Guest's Experience</label>
-      <textarea
+      <label className="mb-1 text-sm">Describe the Guest's Experience</label>
+      <input
+        spellCheck={false}
+        type="text"
+        className="mb-4 resize-none border border-x-0 border-t-0 border-gray-300 py-2 text-xs outline-none focus:border-black"
         value={incident}
         onChange={(e) => {
           setIncident(e.target.value)
         }}
       />
-      <label>Follow-Up Action</label>
-      <textarea
+      <label className="mb-1 text-sm">Follow-Up Action</label>
+      <input
+        spellCheck={false}
+        type="text"
+        className="mb-4 resize-none border border-x-0 border-t-0 border-gray-300 py-2 text-xs outline-none focus:border-black"
         value={replacementAction}
         onChange={(e) => {
           setReplacementAction(e.target.value)
         }}
       />
-      <input type="submit" />
+      <input
+        className="rounded border bg-cfared p-1 text-sm text-white"
+        type="submit"
+      />
     </form>
   )
 }

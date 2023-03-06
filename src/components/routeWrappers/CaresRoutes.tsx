@@ -12,7 +12,8 @@ associated with a location
 
 export const CaresRoutes: React.FC = () => {
   const masterContext = useContext(MasterContext)
-  const { page, cares, setCares } = masterContext
+  const { cares, setCares, caresStartRange, caresEndRange, limitedCares } =
+    masterContext
   const [redirect, setRedirect] = useState<boolean>(false)
 
   useEffect(() => {
@@ -42,6 +43,7 @@ export const CaresRoutes: React.FC = () => {
         }
         caresArray.push(cares)
       }
+      caresArray.reverse()
       setCares(caresArray)
     })
   }, [cares])

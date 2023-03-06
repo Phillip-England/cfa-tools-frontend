@@ -21,6 +21,7 @@ export const CaresHome: React.FC = () => {
       <CreateCaresForm />
       <CaresSearchBar setSearch={setSearch} />
       <CaresList search={search} setSelectedID={setSelectedID} />
+      <div className="h-20"></div>
     </>
   )
 }
